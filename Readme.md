@@ -59,9 +59,9 @@ https://best-inventory-app.adaptable.app/
 **Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.**
 ![Database Image](ReadmeImg/Database.png)
 
-Urls.py berfungsi untuk menghubungkan antara url yang diakses oleh user dengan views.py. 
-Urls.py akan mengarahkan user ke views.py yang akan menentukan apa yang akan ditampilkan ke user. 
-Views.py akan mengambil data dari models.py yang berisi data yang akan ditampilkan ke user. 
+Urls.py berfungsi untuk menghubungkan antara url yang diakses oleh user dengan views.py. <br>
+Urls.py akan mengarahkan user ke views.py yang akan menentukan apa yang akan ditampilkan ke user. <br>
+Views.py akan mengambil data dari models.py yang berisi data yang akan ditampilkan ke user. <br>
 Setelah itu, views.py akan mengirimkan data ke html yang akan ditampilkan ke user.
 
 
@@ -74,21 +74,21 @@ Setelah itu, views.py akan mengirimkan data ke html yang akan ditampilkan ke use
 Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
 - **MVC**
-    Model-View-Controller (MVC) merupakan pola arsitektur aplikasi yang memisahkan code menjadi:
-        Model -> Bagian logika data aplikasi yang akan didisplay atau dimanipulasi <br>
-        View -> Bagian yang menampilkan informasi dengan bentuk UI<br>
+    Model-View-Controller (MVC) merupakan pola arsitektur aplikasi yang memisahkan code menjadi:<br>
+        Model -> Bagian logika data aplikasi yang akan didisplay atau dimanipulasi <br><br>
+        View -> Bagian yang menampilkan informasi dengan bentuk UI<br><br>
         Controller -> Bagian "logika" aplikasi yang mengubungkan model dan view 
         dan mengatur request yang masuk<br>
         
 - **MVT**
     Model-Views-Template merupakan pola arsitektur aplikasi yang digunakan oleh Django web framework, implementasinya pada dasarnya sangat mirip dengan MVT, dengan beberapa penamaan yang beda. Salah satu perbedaan yang utama adalah di MVT Controller sudah ada dari framework dan tidak perlu dicode sendiri.<br>
-        Model -> Dalam Django model sama saja dengan bagian model di MVC, yaitu sebuah logika data aplikasi yang biasanya direpresentasikan oleh database yang didisplay atau dimanipulasi. <br>
-        View -> Dalam Django, view lebih menyerupai "Controller" arsitektur MVC, dimana ia menyerupai handler untuk memproses http request dan mengembalikan response menggunakan data dari `model` dan merender UI dari `Template`<br>
+        Model -> Dalam Django model sama saja dengan bagian model di MVC, yaitu sebuah logika data aplikasi yang biasanya direpresentasikan oleh database yang didisplay atau dimanipulasi. <br> <br>
+        View -> Dalam Django, view lebih menyerupai "Controller" arsitektur MVC, dimana ia menyerupai handler untuk memproses http request dan mengembalikan response menggunakan data dari `model` dan merender UI dari `Template`<br><br>
         Template -> Dalam Django, Template merupakan struktur atau layout dari UI.<br>
 
 - **MVVM**
     Model-view-viewmodel merupakan pola arsitektur yang memisah pengembangan GUI (View) dan logika bisnis (model), ini dilakukan agar 'view' tidak bergantung pada skema 'model' yang spesifik <br>
-        Model -> Merupakan model yang merepresentasikan data yang digunakan pada logika bisnis <br>
-        View -> Merupakan struktur UI yang juga menerima user input <br>
-        ViewModel -> Terletak di antara model dan View, ViewModel mempunyai controls untuk berinteraksi dengan view, berbeda dengan MVC, MVVM mempunyai sebuah *Binder* yang berkomunikasi dengan view dan properti di viewmodel. <br>
+        Model -> Merupakan model yang merepresentasikan data yang digunakan pada logika bisnis <br> <br>
+        View -> Merupakan struktur UI yang juga menerima user input <br> <br>
+        ViewModel -> Terletak di antara model dan View, ViewModel mempunyai controls untuk berinteraksi dengan view, berbeda dengan MVC, MVVM mempunyai sebuah *Binder* yang berkomunikasi dengan view dan properti di viewmodel. <br> 
 
