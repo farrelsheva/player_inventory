@@ -57,30 +57,36 @@ https://best-inventory-app.adaptable.app/
 
 ### Q2
 **Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.**
-![alt text](ReadmeImg/Database.png)
+![Database Image](ReadmeImg/Database.png)
 
-    Urls.py berfungsi untuk menghubungkan antara url yang diakses oleh user dengan views.py. Urls.py akan mengarahkan user ke views.py yang akan menentukan apa yang akan ditampilkan ke user. Views.py akan mengambil data dari models.py yang berisi data yang akan ditampilkan ke user. Setelah itu, views.py akan mengirimkan data ke html yang akan ditampilkan ke user.
+Urls.py berfungsi untuk menghubungkan antara url yang diakses oleh user dengan views.py. 
+Urls.py akan mengarahkan user ke views.py yang akan menentukan apa yang akan ditampilkan ke user. 
+Views.py akan mengambil data dari models.py yang berisi data yang akan ditampilkan ke user. 
+Setelah itu, views.py akan mengirimkan data ke html yang akan ditampilkan ke user.
 
 
 ### Q3
 **Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**
-    kita menggunakan virtual enviroment untuk membuat sebuah lingkungan yang 'terisolasi' dimana kita bisa menginstall dependencies dan versi framework yang kita inginkan tanpa adanya dampak secara global di mesin kita, ini berguna jika misalnya kita memperlukan suatu versi python atau django yang spesifik untuk suatu project yang kita ingin kerjakan, dengan virtual enviroment, 'lingkungan' ini akan bisa dikerjakan dengan versi yang diperlukan dan kita bisa activate dan deactivate saat kita selesai mengerjakanya. Kita tetap bisa membuat sebuah aplikasi web django tanpa menggunakan virtual enviroment, namun ini tidak direkomendasikan, karena misalnya jika kita ingin mengerjakan project yang berbeda tanpa menggunakan virtual enviroment, dependecies akan terinstall secara global, hal ini bisa berdampak buruk jika kita ingin mengerjakan suatu project baru dengan dependencies dan versi django yang berbeda.
+    
+- kita menggunakan virtual enviroment untuk membuat sebuah lingkungan yang 'terisolasi' dimana kita bisa menginstall dependencies dan versi framework yang kita inginkan tanpa adanya dampak secara global di mesin kita, ini berguna jika misalnya kita memperlukan suatu versi python atau django yang spesifik untuk suatu project yang kita ingin kerjakan, dengan virtual enviroment, 'lingkungan' ini akan bisa dikerjakan dengan versi yang diperlukan dan kita bisa activate dan deactivate saat kita selesai mengerjakanya. Kita tetap bisa membuat sebuah aplikasi web django tanpa menggunakan virtual enviroment, namun ini tidak direkomendasikan, karena misalnya jika kita ingin mengerjakan project yang berbeda tanpa menggunakan virtual enviroment, dependecies akan terinstall secara global, hal ini bisa berdampak buruk jika kita ingin mengerjakan suatu project baru dengan dependencies dan versi django yang berbeda.
 
 ### Q4
 Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
-	**MVC**
+
+   - **MVC**
 		Model-View-Controller (MVC) merupakan pola arsitektur aplikasi yang memisahkan code menjadi:
 			Model -> Bagian logika data aplikasi yang akan didisplay atau dimanipulasi 
 			View -> Bagian yang menampilkan informasi dengan bentuk UI
 			Controller -> Bagian "logika" aplikasi yang mengubungkan model dan view 
 			dan mengatur request yang masuk
-	**MVT**
+
+	- **MVT**
 		Model-Views-Template merupakan pola arsitektur aplikasi yang digunakan oleh Django web framework, implementasinya pada dasarnya sangat mirip dengan MVT, dengan beberapa penamaan yang beda. Salah satu perbedaan yang utama adalah di MVT Controller sudah ada dari framework dan tidak perlu dicode sendiri.
 			Model -> Dalam Django model sama saja dengan bagian model di MVC, yaitu sebuah logika data aplikasi yang biasanya direpresentasikan oleh database yang didisplay atau dimanipulasi.
 			View -> Dalam Django, view lebih menyerupai "Controller" arsitektur MVC, dimana ia menyerupai handler untuk memproses http request dan mengembalikan response menggunakan data dari `model` dan merender UI dari `Template`
 			Template -> Dalam Django, Template merupakan struktur atau layout dari UI.
-	MVVM
-		Model-view-viewmodel merupakan pola arsitektur yang memisah pengembangan GUI (View) dan logika bisnis (model), ini dilakukan agar 'view' tidak bergantung pada skema 'model' yang spesifik
+	- **MVVM**
+	    Model-view-viewmodel merupakan pola arsitektur yang memisah pengembangan GUI (View) dan logika bisnis (model), ini dilakukan agar 'view' tidak bergantung pada skema 'model' yang spesifik
 			Model -> Merupakan model yang merepresentasikan data yang digunakan pada logika bisnis
 			View -> Merupakan struktur UI yang juga menerima user input
 				ViewModel -> Terletak di antara model dan View, ViewModel mempunyai controls untuk berinteraksi dengan view, berbeda dengan MVC, MVVM mempunyai sebuah *Binder* yang berkomunikasi dengan view dan properti di viewmodel.
