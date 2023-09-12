@@ -1,5 +1,7 @@
 https://best-inventory-app.adaptable.app/
 
+---
+
 ### Q1
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 
@@ -64,11 +66,14 @@ Urls.py akan mengarahkan user ke views.py yang akan menentukan apa yang akan dit
 Views.py akan mengambil data dari models.py yang berisi data yang akan ditampilkan ke user. <br>
 Setelah itu, views.py akan mengirimkan data ke html yang akan ditampilkan ke user.
 
+---
 
 ### Q3
 **Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?** <br>
     
 - kita menggunakan virtual enviroment untuk membuat sebuah lingkungan yang 'terisolasi' dimana kita bisa menginstall dependencies dan versi framework yang kita inginkan tanpa adanya dampak secara global di mesin kita, ini berguna jika misalnya kita memperlukan suatu versi python atau django yang spesifik untuk suatu project yang kita ingin kerjakan, dengan virtual enviroment, 'lingkungan' ini akan bisa dikerjakan dengan versi yang diperlukan dan kita bisa activate dan deactivate saat kita selesai mengerjakanya. Kita tetap bisa membuat sebuah aplikasi web django tanpa menggunakan virtual enviroment, namun ini tidak direkomendasikan, karena misalnya jika kita ingin mengerjakan project yang berbeda tanpa menggunakan virtual enviroment, dependecies akan terinstall secara global, hal ini bisa berdampak buruk jika kita ingin mengerjakan suatu project baru dengan dependencies dan versi django yang berbeda.
+
+---
 
 ### Q4
 Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
