@@ -34,15 +34,15 @@ https://best-inventory-app.adaptable.app/
 
 
 **Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.**
-	- Dalam direktori `main` buka file `views.py`, dan dari library `django.shortcuts` import `render`, ini untuk me-render tampilan HTML dengan data yang diberikan
+	- Dalam direktori `main` buka file `views.py`, dan dari library `django shortcuts` import `render`, ini untuk me-render tampilan HTML dengan data yang diberikan <br>
 	- Tambahkan fungsi `show_main` dengan paramater request
 	- isi `context` dengan data yang ingin ditampilkan
 	- untuk page saya, context merupakan zipped list dari 3 list berbeda `name`, `amount`, dan `description` yang akan di render di `main.html`
 
-**Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.**
-	- Membuat file `urls.py` dalam direktori main
-	- import fungsi `path` dari `django.urls` untuk mendefisnisikan URL patter
-	- import function `show_main` yang dibuat di views.py
+**Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.** <br>
+	- Membuat file `urls.py` dalam direktori main <br>
+	- import fungsi `path` dari `django.urls` untuk mendefisnisikan URL pattern <br>
+	- import function `show_main` yang dibuat di views.py <br>
 	- set `app_name` menjadi `main`, ini menjadi namespace pattern URL app yang dibuat
 	- mengisi file dengan URL_PATTERN yang mengarah ke function `show_main` yang dibuat  dalam `views.py` 
 	- dengan konfigurasi ini, saat user datang ke url yang disetting, `show_main` view function akan dicall untuk menghandle requst 
@@ -73,20 +73,21 @@ Setelah itu, views.py akan mengirimkan data ke html yang akan ditampilkan ke use
 ### Q4
 Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
-   - **MVC**
-		Model-View-Controller (MVC) merupakan pola arsitektur aplikasi yang memisahkan code menjadi:
-			Model -> Bagian logika data aplikasi yang akan didisplay atau dimanipulasi 
-			View -> Bagian yang menampilkan informasi dengan bentuk UI
-			Controller -> Bagian "logika" aplikasi yang mengubungkan model dan view 
-			dan mengatur request yang masuk
+- **MVC**
+    Model-View-Controller (MVC) merupakan pola arsitektur aplikasi yang memisahkan code menjadi:
+        Model -> Bagian logika data aplikasi yang akan didisplay atau dimanipulasi 
+        View -> Bagian yang menampilkan informasi dengan bentuk UI
+        Controller -> Bagian "logika" aplikasi yang mengubungkan model dan view 
+        dan mengatur request yang masuk
+        
+- **MVT**
+    Model-Views-Template merupakan pola arsitektur aplikasi yang digunakan oleh Django web framework, implementasinya pada dasarnya sangat mirip dengan MVT, dengan beberapa penamaan yang beda. Salah satu perbedaan yang utama adalah di MVT Controller sudah ada dari framework dan tidak perlu dicode sendiri.
+        Model -> Dalam Django model sama saja dengan bagian model di MVC, yaitu sebuah logika data aplikasi yang biasanya direpresentasikan oleh database yang didisplay atau dimanipulasi.
+        View -> Dalam Django, view lebih menyerupai "Controller" arsitektur MVC, dimana ia menyerupai handler untuk memproses http request dan mengembalikan response menggunakan data dari `model` dan merender UI dari `Template`
+        Template -> Dalam Django, Template merupakan struktur atau layout dari UI.
 
-	- **MVT**
-		Model-Views-Template merupakan pola arsitektur aplikasi yang digunakan oleh Django web framework, implementasinya pada dasarnya sangat mirip dengan MVT, dengan beberapa penamaan yang beda. Salah satu perbedaan yang utama adalah di MVT Controller sudah ada dari framework dan tidak perlu dicode sendiri.
-			Model -> Dalam Django model sama saja dengan bagian model di MVC, yaitu sebuah logika data aplikasi yang biasanya direpresentasikan oleh database yang didisplay atau dimanipulasi.
-			View -> Dalam Django, view lebih menyerupai "Controller" arsitektur MVC, dimana ia menyerupai handler untuk memproses http request dan mengembalikan response menggunakan data dari `model` dan merender UI dari `Template`
-			Template -> Dalam Django, Template merupakan struktur atau layout dari UI.
-	- **MVVM**
-	    Model-view-viewmodel merupakan pola arsitektur yang memisah pengembangan GUI (View) dan logika bisnis (model), ini dilakukan agar 'view' tidak bergantung pada skema 'model' yang spesifik
-			Model -> Merupakan model yang merepresentasikan data yang digunakan pada logika bisnis
-			View -> Merupakan struktur UI yang juga menerima user input
-				ViewModel -> Terletak di antara model dan View, ViewModel mempunyai controls untuk berinteraksi dengan view, berbeda dengan MVC, MVVM mempunyai sebuah *Binder* yang berkomunikasi dengan view dan properti di viewmodel.
+- **MVVM**
+    Model-view-viewmodel merupakan pola arsitektur yang memisah pengembangan GUI (View) dan logika bisnis (model), ini dilakukan agar 'view' tidak bergantung pada skema 'model' yang spesifik
+        Model -> Merupakan model yang merepresentasikan data yang digunakan pada logika bisnis
+        View -> Merupakan struktur UI yang juga menerima user input
+            ViewModel -> Terletak di antara model dan View, ViewModel mempunyai controls untuk berinteraksi dengan view, berbeda dengan MVC, MVVM mempunyai sebuah *Binder* yang berkomunikasi dengan view dan properti di viewmodel.
