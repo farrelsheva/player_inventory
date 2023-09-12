@@ -35,9 +35,9 @@ https://best-inventory-app.adaptable.app/
 
 **Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.** <br>
 	- Dalam direktori `main` buka file `views.py`, dan dari library `django shortcuts` import `render`, ini untuk me-render tampilan HTML dengan data yang diberikan <br>
-	- Tambahkan fungsi `show_main` dengan paramater request
-	- isi `context` dengan data yang ingin ditampilkan
-	- untuk page saya, context merupakan zipped list dari 3 list berbeda `name`, `amount`, dan `description` yang akan di render di `main.html`
+	- Tambahkan fungsi `show_main` dengan paramater request <br>
+	- isi `context` dengan data yang ingin ditampilkan <br>
+	- untuk page saya, context merupakan zipped list dari 3 list berbeda `name`, `amount`, dan `description` yang akan di render di `main.html` <br>
 
 **Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.** <br>
 	- Membuat file `urls.py` dalam direktori main <br>
@@ -66,7 +66,7 @@ Setelah itu, views.py akan mengirimkan data ke html yang akan ditampilkan ke use
 
 
 ### Q3
-**Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**
+**Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?** <br>
     
 - kita menggunakan virtual enviroment untuk membuat sebuah lingkungan yang 'terisolasi' dimana kita bisa menginstall dependencies dan versi framework yang kita inginkan tanpa adanya dampak secara global di mesin kita, ini berguna jika misalnya kita memperlukan suatu versi python atau django yang spesifik untuk suatu project yang kita ingin kerjakan, dengan virtual enviroment, 'lingkungan' ini akan bisa dikerjakan dengan versi yang diperlukan dan kita bisa activate dan deactivate saat kita selesai mengerjakanya. Kita tetap bisa membuat sebuah aplikasi web django tanpa menggunakan virtual enviroment, namun ini tidak direkomendasikan, karena misalnya jika kita ingin mengerjakan project yang berbeda tanpa menggunakan virtual enviroment, dependecies akan terinstall secara global, hal ini bisa berdampak buruk jika kita ingin mengerjakan suatu project baru dengan dependencies dan versi django yang berbeda.
 
@@ -75,19 +75,20 @@ Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
 - **MVC**
     Model-View-Controller (MVC) merupakan pola arsitektur aplikasi yang memisahkan code menjadi:
-        Model -> Bagian logika data aplikasi yang akan didisplay atau dimanipulasi 
-        View -> Bagian yang menampilkan informasi dengan bentuk UI
+        Model -> Bagian logika data aplikasi yang akan didisplay atau dimanipulasi <br>
+        View -> Bagian yang menampilkan informasi dengan bentuk UI<br>
         Controller -> Bagian "logika" aplikasi yang mengubungkan model dan view 
-        dan mengatur request yang masuk
+        dan mengatur request yang masuk<br>
         
 - **MVT**
-    Model-Views-Template merupakan pola arsitektur aplikasi yang digunakan oleh Django web framework, implementasinya pada dasarnya sangat mirip dengan MVT, dengan beberapa penamaan yang beda. Salah satu perbedaan yang utama adalah di MVT Controller sudah ada dari framework dan tidak perlu dicode sendiri.
-        Model -> Dalam Django model sama saja dengan bagian model di MVC, yaitu sebuah logika data aplikasi yang biasanya direpresentasikan oleh database yang didisplay atau dimanipulasi.
-        View -> Dalam Django, view lebih menyerupai "Controller" arsitektur MVC, dimana ia menyerupai handler untuk memproses http request dan mengembalikan response menggunakan data dari `model` dan merender UI dari `Template`
-        Template -> Dalam Django, Template merupakan struktur atau layout dari UI.
+    Model-Views-Template merupakan pola arsitektur aplikasi yang digunakan oleh Django web framework, implementasinya pada dasarnya sangat mirip dengan MVT, dengan beberapa penamaan yang beda. Salah satu perbedaan yang utama adalah di MVT Controller sudah ada dari framework dan tidak perlu dicode sendiri.<br>
+        Model -> Dalam Django model sama saja dengan bagian model di MVC, yaitu sebuah logika data aplikasi yang biasanya direpresentasikan oleh database yang didisplay atau dimanipulasi. <br>
+        View -> Dalam Django, view lebih menyerupai "Controller" arsitektur MVC, dimana ia menyerupai handler untuk memproses http request dan mengembalikan response menggunakan data dari `model` dan merender UI dari `Template`<br>
+        Template -> Dalam Django, Template merupakan struktur atau layout dari UI.<br>
 
 - **MVVM**
-    Model-view-viewmodel merupakan pola arsitektur yang memisah pengembangan GUI (View) dan logika bisnis (model), ini dilakukan agar 'view' tidak bergantung pada skema 'model' yang spesifik
-        Model -> Merupakan model yang merepresentasikan data yang digunakan pada logika bisnis
-        View -> Merupakan struktur UI yang juga menerima user input
-            ViewModel -> Terletak di antara model dan View, ViewModel mempunyai controls untuk berinteraksi dengan view, berbeda dengan MVC, MVVM mempunyai sebuah *Binder* yang berkomunikasi dengan view dan properti di viewmodel.
+    Model-view-viewmodel merupakan pola arsitektur yang memisah pengembangan GUI (View) dan logika bisnis (model), ini dilakukan agar 'view' tidak bergantung pada skema 'model' yang spesifik <br>
+        Model -> Merupakan model yang merepresentasikan data yang digunakan pada logika bisnis <br>
+        View -> Merupakan struktur UI yang juga menerima user input <br>
+        ViewModel -> Terletak di antara model dan View, ViewModel mempunyai controls untuk berinteraksi dengan view, berbeda dengan MVC, MVVM mempunyai sebuah *Binder* yang berkomunikasi dengan view dan properti di viewmodel. <br>
+
