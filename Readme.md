@@ -105,12 +105,12 @@ Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 - Dalam Virtual enviroment yang active, kita perlu membuat sebuah *Skeleton* yang menjadi basis dari HTML kita, ini dilakukan agar semua aplikasi mempunyai tampilan yang konsisten di *views* <br>
 - Pada *root* directory buatlah sebuah folder templates dan isi dengan file `base.html`, yang akan menjadi "base" dari HTML yang akan dibuat dari sekarang <br>
 - Pada file `settings.py` dalam direktori projek `player_inventory`, kita akan menambah template yang ada di dalam *root* directory, dengan menambah `BASE_DIR/'templates'`, kepada `TEMPLATES` <br>
-- Pada file `main.html` dalam aplikasi `main` , konfigurasilah agar meng-extend dari template dasar `base.html` dengan menggunakan `{%extends 'base.html' %}` dna mendeklarasi block yang akan dipakai
-<br>
+- Pada file `main.html` dalam aplikasi `main` , konfigurasilah agar meng-extend dari template dasar `base.html` dengan menggunakan `{%extends 'base.html' %}` dna mendeklarasi block yang akan dipakai <br> <br>
+
 - Model `item` saya merupakan sebuah class dengan 3 attribut, form perlu mengisi 3 atribut tersebut, karena ini `fields` yang perlu diisi dari form adalah name, amount, dan description <br>
 - pada direktori `main` buatlah sebuah file bernama `forms.py`, yang merupakan code dari form yang akan dibuat buatlah sebuah class form `itemform` dengan meta class denagn atribut `fields` yang merupakan sebuah list yang terisi dengan atribut yang ingin dimasukkan sebagai input <br>
-- Import beberapa library (termasuk form class yang baru dibuat) kepada `views.py`:<br>
-	1. `HttpResponseRedirect`, yang merupakan subclass dari `HttpResponse`, yang berguna untuk meredirect user kepada url spesifik
+- Import beberapa library (termasuk form class yang baru dibuat) kepada `views.py`:
+	1. `HttpResponseRedirect`, yang merupakan subclass dari `HttpResponse`, yang berguna untuk meredirect user kepada url spesifik <br>
 	2. `reverse` yang membantu kita untuk tidak hardcode url full dan memakai *url pattern*<br>
 -  Dalam `views.py` ini saya membuat function bernama `create_item` yang mengambil `request.post` dan membuat ItemForm baru berdasarkan request.post user, mengvalidasi input form (`form.is_valid`), save form (`form.save`) dan redirect user ke main page setelah selesai. <br>
 - dalam file urls.py di main kita akan tambahkan routing baru untuk halaman form yang kita sudah buat <br>
@@ -128,9 +128,11 @@ Dalam `views.py` kita bisa membuat function-function untuk mendisplay info tenta
 - format html: <br>
 	dalam fungsi `show_main` kita akan menambah context baru yaitu object `items` yang dideclare dengan menggunakan `Item.objects.all`, ini merupakan kumpulan data object `Item` yang sudah ada di database, dalam html main kita akan mmebuat sebuah tabel yang menunjukkan semua item yang sudah dibuat dengan mengiterasi di sebuah for loop dengan attribut yang sesuai.
 - format JSON dan XML (semua `Item`): <br>
-	Buat function baru bernama `show_json`/ `show_xml` dan seperti tadi declare sebuah variable data dan *retrieve* semua object Item yang ada menggunakan `Item.objects.all` , sehabis ini kita akan meng-*serialize* data yang ada menggunakan method `serialize` dari module `serializers` dari library `django.core`. meng-*serialize* data intinya dalah untuk mengubah sebuah struktur data atau *object state* menjadi format yang bisa disimpan, ditransmit, atau dibagi dalam representasi text. 
-	Untuk Json, Kita akan mengserialize data meggunakan `serializers.serialize("json",data)` dan return sebuah object Http response dengan content type `application/json` 
-	Untuk XML, kita mengserialize data dengan menggunakan `serializers.serialize("xml",data)` dan return object Http response dengan content type `application/xml`
+	Buat function baru bernama `show_json`/ `show_xml` dan seperti tadi declare sebuah variable data dan *retrieve* semua object Item yang ada menggunakan `Item.objects.all`, sehabis ini kita akan meng-*serialize* data yang ada menggunakan method `serialize` dari module `serializers` dari library `django.core`. <br>
+	
+	meng-*serialize* data intinya dalah untuk mengubah sebuah struktur data atau *object state* menjadi format yang bisa disimpan, ditransmit, atau dibagi dalam representasi text. <br> 
+	Untuk Json, Kita akan mengserialize data meggunakan `serializers.serialize("json",data)` dan return sebuah object Http response dengan content type `application/json` <br>
+	Untuk XML, kita mengserialize data dengan menggunakan `serializers.serialize("xml",data)` dan return object Http response dengan content type `application/xml` <br>
 	Sebuah content type adalah sebuah header yang mengindikasi tipe media atau format resource yang dikirim atau diterima.
 - Format JSON dan XML (1 Item): <br>
 	Untuk mengfilter item yang diinginkan kita bisa mengfilter item yang ada di data dengan id unik yang diberikan saat dibuat. ini bisa dilakukan dengan memakai .filter(pk=id) pada manager class Item.
@@ -147,9 +149,9 @@ Dalam `views.py` kita bisa membuat function-function untuk mendisplay info tenta
 Dalam `urls.py` di main kita akan routing semua function Http request yang kita sudah buat ke urlnya sendiri (dibawah `main/`) <br>
 langkah pertama pastinya adalah untuk mengimport function-function yang sudah kita buat dengan <br>
 	`from main.views import show_json, show_xml, show_xml_by_id, show_json_by_id`
-, di list urlpatterns, dengan menggunakan `path`, kita akan routing url yang berbeda untuk semua function yang sudah dibuat.
+, di list urlpatterns, dengan menggunakan `path`, kita akan routing url yang berbeda untuk semua function yang sudah dibuat. <br>
 untuk format JSON dan XML: <br>
-	`path('json/', show_json, name='show_json'), path('xml/', show_xml, name='show_xml')`
+	`path('json/', show_json, name='show_json'), path('xml/', show_xml, name='show_xml')` <br>
 untuk JSON dan XML dengan id: <br>
 	`path('xml/<int:id>', show_xml_by_id, name='show_xml_by_id'), path('json/<int:id>', show_json_by_id, name='show_json_by_id')`
 
@@ -195,10 +197,10 @@ Sebuah request yang bisa mengubah sistem harus menggunakan `POST`
 
 ### Q2.6
 **Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?** <br>
-Seperti yang disebut di dalam perbedaan-perbedaan tadi , JSON, atau JavaScript Object Notation sangat populer dikarenakan:
-	- Syntax yang mudah dibaca oleh manusia dan diparse oleh mesin, karena ini tidak memerlukan kode tambahan untuk diproses
-	- Ukuran filenya yang kecil membantu dalam mempercepat transfer data dan hasil dari web service
-	- Kebanyakan framework di dunia aplikasi web menggunakan JavaScript sebagai dasarnya, JSON merupakan representasi object dari JavaScript, karena ini JSON merupakan cara paling mudah untuk memanipulasi dan menyimpan data dalam dunia aplikasi web.
+Seperti yang disebut di dalam perbedaan-perbedaan tadi , JSON, atau JavaScript Object Notation sangat populer dikarenakan: <br>
+- Syntax yang mudah dibaca oleh manusia dan diparse oleh mesin, karena ini tidak memerlukan kode tambahan untuk diproses
+- Ukuran filenya yang kecil membantu dalam mempercepat transfer data dan hasil dari web service
+- Kebanyakan framework di dunia aplikasi web menggunakan JavaScript sebagai dasarnya, JSON merupakan representasi object dari JavaScript, karena ini JSON merupakan cara paling mudah untuk memanipulasi dan menyimpan data dalam dunia aplikasi web.
 
 ---
 
