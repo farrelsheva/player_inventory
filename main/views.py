@@ -10,7 +10,7 @@ from main.models import Item
 from django.core import serializers
 # Create your views here.
 
-@login_required(login_url='/login')
+@login_required(login_url='login/')
 def show_main(request):
     items = Item.objects.all()
     context = {
@@ -63,7 +63,7 @@ def register(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your account has been successfully created!')
-            return redirect('main:login')
+            return redirect('main:login_user')
     context = {'form':form}
     return render(request, 'register.html', context)
 
@@ -82,6 +82,6 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('main:login')
+    return redirect('main:login_user')
 
     
