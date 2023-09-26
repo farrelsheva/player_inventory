@@ -16,7 +16,7 @@ def show_main(request):
     items = Item.objects.all()
     context = {
         
-        'name' : "Farrel Sheva Alkautsar",
+        'name' : request.user.username,
         'class' : "PBP A",
         'npm' : "2206030344",
         'items' : items,
@@ -28,18 +28,15 @@ def create_item(request):
     form = ItemForm(request.POST or None)
     
     if form.is_valid() and request.method == "POST":
-        form.save()
+        item = form.save(commit=False)
+        item.user = request.user
+        item.save()
         return HttpResponseRedirect(reverse('main:show_main'))
     
     context = {'form': form}
     return render(request, 'create_item.html', context)
 
-def show_html(request):
-    data = Item.objects.all()
-    context = {
-        'items': data
-    }
-    return render(request, 'show_html.html',context)
+
 
 def show_json(request):
     data = Item.objects.all()
@@ -86,6 +83,8 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('main:login_user')
+    response = HttpResponseRedirect(reverse('main:login_user'))
+    response.delete_cookie('last_login')
+    return response
 
     
