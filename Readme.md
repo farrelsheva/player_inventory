@@ -1,6 +1,36 @@
 # TUGAS 3
+### Q3.1 
+**Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?**
+UserCreationForm merupakan sebuah form yang sudah disediakan oleh Django yang memungkinkan kita untuk membuat user baru dengan mudah. <br>
+Kekurangan  dari UserCreationForm, adalah tampilan yang standar dari form ini, dan tidak ada fitur tambahan lain (seperti integrasi media sosial, atau pemberitahuan email). <br>
 
-### Q3.1
+### Q3.2
+**Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
+**Autentikasi**: <br>
+- Merupakan proses untuk memverifikasi identitas user yang ingin mengakses suatu sistem. <br>
+- Dalam web app, mengacu kepada proses dimana sebuah user diminta memasukkan kredensialnya, lalu diverifikasi oleh sistem untuk memastikan bahwa user tersebut adalah user yang sebenarnya. <br>
+
+**Otorisasi**: <br>
+- Sebuah proses untuk memverifikasi bahwa user yang SUDAH terautentikasi memiliki akses ke resource tertentu. <br>
+- Dalam web app, mengacu kepada proses dimana user yang sudah terautentikasi diberikan hak akses/izin ke halaman tertentu dan fungsionalitasnya <br>
+
+Keduanya penting karena: <br>
+- Merupakan bagian dari keamanan sistem, dimana autentikasi dan otorisasi merupakan dua hal yang berbeda, namun saling melengkapi. <br>
+- Pemisahan antara autentikasi dan otorisasi memungkinkan kita untuk mengatur hak akses user dengan lebih mudah, karena kita bisa mengatur hak akses user berdasarkan role yang dimiliki oleh user tersebut. (AKA separation of concern) <br>
+- Autentikasi dan otorisasi adalah dua aspek penting dari keamanan aplikasi web, dan keduanya diperlukan untuk memastikan bahwa aplikasi Anda aman dari ancaman eksternal dan bahwa pengguna memiliki akses yang tepat ke sumber daya. <br>
+
+### Q3.3
+**Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
+Dalam konteks web app, Cookies merupakan potongan data yang dikirim dari server ke browser pengguna dan disimpan di sisi Client, Cookie seringkali digunakan untuk menyimpan informasi tentang user dan pengaturan user. <br>
+Django menggunakan cookies untuk mengelola data sesi pengguna dengan menyimpan session ID di cookie, dan menyimpan data sesi di server. <br>
+ini memungkinkan Django untuk mengatur data sesi pengguna tanpa menyimpan data sensitif di sisi client bahkan Django memberikan opsi untuk menggunakan cookie yang terenkripsi <br>
+
+### Q3.4
+**Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
+Penggunaan cookies tidak aman secara default dalam pengembangan web, karena cookies tidak terenkripsi dan bisa diakses oleh orang lain. <br>
+
+
+### Q3.5
 **Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.** <br>
 Ketiga fungsi ini akan dibuat di dalam aplikasi `main` yang sudah dibuat sebelumnya. 
 <br>
@@ -33,8 +63,27 @@ Kita akan menambahkan restriksi login untuk fungsi dasar di web app kita, sehing
 - Tambahkan decorator `@login_required` di setiap view function yang ingin kita restriksi (show_main)<br>
 
 
-### Q3.2
 **Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
+- Setelah Menghubungkan aplikasi dengan database, kita akan membuat 2 akun pengguna dengan 3 dummy data untuk setiap akun di lokal. <br>
+
+**Menghubungkan model Item dengan User.**	
+- Dalam `models.py`, kita akan mengimport module `user` dari `django.contrib.auth.models` <br>
+- Pada class `Item`, kita akan menambahkan sebuah field `user` yang merupakan ForeignKey dari `User`, ini akan menghubungkan setiap item dengan user yang membuatnya <br>
+- Setelah ini, dalam `views.py` pada `create_item` function, kita akan mengedit sehingga request user akan diassign ke user yang membuat item, dengan menggunakan form.save(commit=False), yang akan mendelay save ke database, dan hanya membuat sebuah instance dari Item  <br>
+product.user = request.user, yang akan mengassign user yang membuat item ke user yang sedang login <br>
+product.save(), yang akan menyimpan item ke database <br>
+- Pada fungsi `show_main` kita akan mengubahnya sehingga hanya menampilkan item yang dibuat oleh user yang sedang login, dengan mengfilter item yang dilihatkan memakai<br>
+`Item.objects.filter(user=request.user)`<br>
+kita juga akan mengubah context name sehingga username user yang sedang login diperlihatkan dengan mengganti context name menjadi `request.user.username` <br>
+- Sehabis ini kita migrate perubahan kepada models menggunakan `makemigrations` lalu `migrate` <br>
+
+**Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.**
+- Dalam `views.py` import datetime <br>
+- Dalam fungsi `login_user`, kita akan mengset cookie kepada waktu user terakhir kali login dengan `response.set_cookie('last_login', datetime.datetime.now())` <br>
+- pada fungsi `show_main`, kita akan menambahkan sebuah context baru bernama `last_login` yang akan diisi dengan cookie yang sudah kita set tadi, menggunakan `request.COOKIES['last_login']`<br>
+- pada fungsi logout, kita akan menghapus cookie yang sudah kita set tadi dengan `response.delete_cookie('last_login')` <br>
+- Tentunya untuk semua ini terlihat, dalam `main.html` kita akan menambahkan sebuah template tag yang akan menampilkan waktu terakhir login user (bernama 'last_login) <br>
+
 
 ---
 
