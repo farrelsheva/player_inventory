@@ -13,7 +13,7 @@ from django.core import serializers
 
 @login_required(login_url='login/')
 def show_main(request):
-    items = Item.objects.all()
+    items = Item.objects.filter(User=request.user)
     context = {
         
         'name' : request.user.username,
@@ -29,7 +29,7 @@ def create_item(request):
     
     if form.is_valid() and request.method == "POST":
         item = form.save(commit=False)
-        item.user = request.user
+        item.User = request.user
         item.save()
         return HttpResponseRedirect(reverse('main:show_main'))
     
