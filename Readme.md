@@ -1,11 +1,13 @@
 # TUGAS 3
 ### Q3.1 
-**Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?**
+**Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?** <br>
 UserCreationForm merupakan sebuah form yang sudah disediakan oleh Django yang memungkinkan kita untuk membuat user baru dengan mudah. <br>
 Kekurangan  dari UserCreationForm, adalah tampilan yang standar dari form ini, dan tidak ada fitur tambahan lain (seperti integrasi media sosial, atau pemberitahuan email). <br>
 
+---
+
 ### Q3.2
-**Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
+**Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?** <br>
 **Autentikasi**: <br>
 - Merupakan proses untuk memverifikasi identitas user yang ingin mengakses suatu sistem. <br>
 - Dalam web app, mengacu kepada proses dimana sebuah user diminta memasukkan kredensialnya, lalu diverifikasi oleh sistem untuk memastikan bahwa user tersebut adalah user yang sebenarnya. <br>
@@ -19,19 +21,24 @@ Keduanya penting karena: <br>
 - Pemisahan antara autentikasi dan otorisasi memungkinkan kita untuk mengatur hak akses user dengan lebih mudah, karena kita bisa mengatur hak akses user berdasarkan role yang dimiliki oleh user tersebut. (AKA separation of concern) <br>
 - Autentikasi dan otorisasi adalah dua aspek penting dari keamanan aplikasi web, dan keduanya diperlukan untuk memastikan bahwa aplikasi Anda aman dari ancaman eksternal dan bahwa pengguna memiliki akses yang tepat ke sumber daya. <br>
 
+---
+
 ### Q3.3
-**Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
+**Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?** <br>
 Dalam konteks web app, Cookies merupakan potongan data yang dikirim dari server ke browser pengguna dan disimpan di sisi Client, Cookie seringkali digunakan untuk menyimpan informasi tentang user dan pengaturan user. <br>
 Django menggunakan cookies untuk mengelola data sesi pengguna dengan menyimpan session ID di cookie, dan menyimpan data sesi di server. <br>
 ini memungkinkan Django untuk mengatur data sesi pengguna tanpa menyimpan data sensitif di sisi client bahkan Django memberikan opsi untuk menggunakan cookie yang terenkripsi <br>
 
-### Q3.4
-**Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
-Penggunaan cookies tidak aman secara default dalam pengembangan web, karena cookies tidak terenkripsi dan bisa diakses oleh orang lain. <br>
+---
 
+### Q3.4
+**Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?** <br>
+Penggunaan cookies tidak aman secara default dalam pengembangan web, karena cookies tidak terenkripsi dan bisa diakses oleh orang lain. Meskipun cookie sangat berguna untuk web development, kita harus berhati-hati dalam penggunaannya, karena cookie bisa digunakan untuk melakukan serangan keamanan seperti session Man-In-The-Middle Attack dan cross-site scripting. <br>
+
+---
 
 ### Q3.5
-**Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.** <br>
+**Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.**<br>
 Ketiga fungsi ini akan dibuat di dalam aplikasi `main` yang sudah dibuat sebelumnya. 
 <br>
 Sebagai sebuah basis sebelum kita menghubungkan aplikasi dengan database (model Item) <br>
