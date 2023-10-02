@@ -38,7 +38,7 @@ Penggunaan cookies tidak aman secara default dalam pengembangan web, karena cook
 ---
 
 ### Q3.5
-**Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.**<br>
+**Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar**<br>
 Ketiga fungsi ini akan dibuat di dalam aplikasi `main` yang sudah dibuat sebelumnya. 
 <br>
 Sebagai sebuah basis sebelum kita menghubungkan aplikasi dengan database (model Item) <br>
