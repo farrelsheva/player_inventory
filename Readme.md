@@ -1,3 +1,84 @@
+# TUGAS 4
+### Q4.1
+**Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
+Simple Selector: <br>
+- `*` -> Mengambil semua element <br>
+- `element` -> Mengambil element dengan nama tertentu <br>
+- `.class` -> Mengambil element dengan class tertentu <br>
+- `#id` -> Mengambil element dengan id tertentu <br>
+- `element.class` -> Mengambil element dengan nama dan class tertentu <br>
+- `element#id` -> Mengambil element dengan nama dan id tertentu <br>
+Simple Selector ini bisa digunakan untuk mengambil element tertentu dengan nama, class, atau id tertentu. <br>
+
+combinator selector: <br> 
+- `element element` -> Mengambil element yang merupakan child dari element tertentu <br>
+- `element > element` -> Mengambil element yang merupakan direct child dari element tertentu <br>
+- `element + element` -> Mengambil element yang merupakan sibling dari element tertentu (tepat setelah element tertentu) <br>
+- `element ~ element` -> Mengambil element yang merupakan sibling dari element tertentu (setelah element tertentu) <br>
+
+combinator selector ini bisa digunakan untuk mengambil element yang berada di dalam element tertentu, atau element yang berada di sebelah element tertentu. <br>
+
+Pseudo-class selector: <br>
+- `:active` -> Mengambil element yang sedang aktif <br>
+- `:checked` -> Mengambil element yang sedang dicheck <br>
+- `:enabled` dan ':disabled' -> Mengambil element yang sedang aktif atau tidak aktif <br>
+- `:first-child` dan `:last-child` -> Mengambil element yang merupakan child pertama atau terakhir dari parentnya <br>
+- `:nth-child(n)` -> Mengambil element yang merupakan child ke-n dari parentnya <br>
+- `:nth-last-child(n)` -> Mengambil element yang merupakan child ke-n dari parentnya, dimulai dari belakang <br>
+- `:first-of-type` dan `:last-of-type` -> Mengambil element yang merupakan child pertama atau terakhir dari parentnya dengan tipe tertentu <br>
+- `:nth-of-type(n)` -> Mengambil element yang merupakan child ke-n dari parentnya dengan tipe tertentu <br>
+- `:focus` -> Mengambil element yang sedang difokuskan (dengan keyboard) <br>
+- `:hover` -> Mengambil element yang sedang dihover (mouse di atasnya) <br>
+- `:not(selector)` -> Mengambil element yang bukan merupakan selector tertentu <br>
+- `:root` -> Mengambil element root dari sebuah document (selalu <'html'>)<br>
+- `:target` -> Mengambil element yang sedang ditargetkan oleh sebuah link <br>
+- `:empty` -> Mengambil element yang tidak memiliki child (maupun jika ada komen)<br>
+- `:only-child` -> Mengambil element yang merupakan satu-satunya child dari parentnya <br>
+- `:only-of-type` -> Mengambil element yang merupakan satu-satunya child dari parentnya dengan tipe tertentu <br>
+
+Pseudo-class selector merupakan selector yang bisa digunakan untuk mengambil element yang mempunyai state tertentu (seperti sedang dihover, atau sedang difokuskan), element yang mempnyai relasi tertentu (seperti child pertama, atau sibling), atau element yang mempunyai tipe tertentu (seperti child pertama dengan tipe tertentu). <br>
+
+---
+
+### Q4.2
+**Jelaskan HTML5 Tag yang kamu ketahui.** <br>
+Struktur: 
+- `<header>` -> Digunakan untuk membuat header dari sebuah dokumen atau section. <br>
+- `<nav>` -> Digunakan untuk membuat link navigasi. <br>
+- `<DOCTYPE>` -> Digunakan untuk mendefinisikan tipe dokumen. <br>
+- `<body>` 	-> Digunakan untuk mendefinisikan body dari sebuah dokumen. <br>
+- `<meta>` -> Digunakan untuk mendefinisikan metadata dari sebuah dokumen. <br>
+- `<link>` -> Digunakan untuk mendefinisikan link ke dokumen lain. <br>
+- `<a>` -> Digunakan untuk mendefinisikan anchor hyperlink. <br>
+- `<script>` -> Digunakan untuk mendefinisikan script client-side. <br>
+
+Table:
+- `<table>` -> Digunakan untuk mendefinisikan sebuah table. <br>
+- `<tr>` -> Digunakan untuk mendefinisikan sebuah row dalam sebuah table. <br>
+- `<th>` -> Digunakan untuk mendefinisikan sebuah header cell dalam sebuah table. <br>
+- `<td>` -> Digunakan untuk mendefinisikan sebuah cell dalam sebuah table. <br>
+- `<thead>` -> Digunakan untuk mengelompokkan header cell dalam sebuah table. <br>
+- `<tbody>` -> Digunakan untuk mengelompokkan body content dalam sebuah table. <br>
+
+Form:
+- `<form>` -> Digunakan untuk mendefinisikan sebuah form. <br> 
+- `<input>` -> Digunakan untuk mendefinisikan sebuah input field. <br>
+- `<textarea>` -> Digunakan untuk mendefinisikan sebuah text area. <br>
+- `<button>` -> Digunakan untuk mendefinisikan sebuah button.(biasanya untuk submit) <br>
+- `<label>` -> Digunakan untuk mendefinisikan sebuah label untuk sebuah input field. <br>
+
+---
+
+### Q4.3
+**Jelaskan perbedaan antara margin dan padding.** <br>
+| Margin | Padding |
+| :--- | ---: |
+| Merupakan jarak antara border dengan element lain | Merupakan jarak antara border dengan content |
+|Bisa menggunakan negative value | Tidak bisa menggunakan negative value | 
+| Tidak mempengaruhi background | Mempengaruhi background |
+| Bisa disetting secara automatis | Tidak bisa disetting secara automatis |
+---
+
 # TUGAS 3
 ### Q3.1 
 **Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?** <br>
