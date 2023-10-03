@@ -73,10 +73,30 @@ Form:
 **Jelaskan perbedaan antara margin dan padding.** <br>
 | Margin | Padding |
 | :--- | ---: |
-| Merupakan jarak antara border dengan element lain | Merupakan jarak antara border dengan content |
+|Merupakan jarak antara elemen dengan elemen lainnya | Merupakan jarak antara elemen dengan konten di dalamnya |
 |Bisa menggunakan negative value | Tidak bisa menggunakan negative value | 
 | Tidak mempengaruhi background | Mempengaruhi background |
 | Bisa disetting secara automatis | Tidak bisa disetting secara automatis |
+| Tidak mepengaruhi size | Mempengaruhi size |
+
+
+### Q4.4
+**Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?** <br>
+CSS Tailwind, merupakan sebuah UI framework yang memberikan developer widget-widget tanpa tema atau komponen yang sudah jadi. Namun, memberi banyak fleksibilitas untuk mengatur tampilan dari komponen-komponen tersebut. <br>
+kita sebaiknya menggunakan Tailwind jika: <br>
+- Kita ingin membuat tampilan yang unik dan tidak terlalu bergantung pada tema yang sudah ada. <br>
+- Kita ingin lebih fleksibel dalam mengatur tampilan dari komponen-komponen yang sudah ada. <br>
+
+Bootstrap, merupakan sebuah UI kit yang mempunyai banyak komponen pre-built yang bisa digunakan untuk membangun sebuah website.Bootstrap digunakan developer yang ingin memakai komponen dengan tampilan yang konsisten tanpa harus membuatnya dari awal. <br> 
+Kita sebaiknya menggunakan Bootstrap jika: <br>
+- Kita ingin membuat tampilan yang konsisten dan secara cepat <br>
+- Kita ingin menggunakan komponen-komponen yang sudah ada dan fiturnya <br>
+
+---
+### Q4.5
+**Step-by-step Kustomisasi login, register dan tambah inventori** <br>
+
+
 ---
 
 # TUGAS 3

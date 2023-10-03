@@ -36,7 +36,16 @@ def create_item(request):
     context = {'form': form}
     return render(request, 'create_item.html', context)
 
-
+def edit_item(request,id):
+    item = Item.objects.get(pk=id)
+    form = ItemForm(request.POST or None, instance=item)
+    
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+    
+    context = {'form': form}
+    return render(request, 'edit_item.html', context);
 
 def show_json(request):
     data = Item.objects.all()

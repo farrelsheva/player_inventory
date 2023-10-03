@@ -1,52 +1,68 @@
 {%extends 'base.html' %}
+{% load static %}
 {%block content%}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PBP Inventory app</title>
-  </head>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    Farrel Sheva Alkautsar  
+  </a>
+</nav>
+  
+<h1 align="center">Inventory Page</h1>
+<p> Name: {{name}}</p>
 
-  <body>
-    
-    <h1 align="center">Inventory Page</h1>
-    <p> Name: {{name}}</p>
+<p> Class: {{class}}</p>
 
-    <p> Class: {{class}}</p>
-
-    <p> NPM: {{npm}}</p>
-  <table class="table table-hover mx-auto">
-
-        <th>Item</th>
-        <th>Amount</th>
-        <th>Description</th>
+<p> NPM: {{npm}}</p>
+<table class="table table-hover mx auto">
+  <thead>
+    <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Description</th>
     </tr>
+  </thead>
+  <tbody>
+  {% for item in items %}
+      <tr class="{% if forloop.last %}table-danger{% else %}table-info{% endif %}" 
+      data-url="{% url 'main:edit_item' item.id %}">
+          <td>{{item.name}}</td>
+          <td>{{item.amount}}</td>
+          <td>{{item.description}}</td>
+      </tr>
+  {% endfor %}
+  </tbody>
+</table>
 
-    {% for item in items %}
-        <tr>
-            <td>{{item.name}}</td>
-            <td>{{item.amount}}</td>
-            <td>{{item.description}}</td>
-        </tr>
-    {% endfor %}
-  </table>
-  <br />
+<br>
 
-  <a href="{% url 'main:create_item' %}">
-    <button>
-        Loot a new Item!
-    </button>
+<div class="d-flex justify-content-center" >
+<a href="{% url 'main:create_item' %}">
+  <button class="btn btn-success" >
+      Loot a new Item!
+  </button>
 </a>
+</div>
 
-<h5>Last Played: {{last_login}}</h5>
+<br>
+<div class="d-flex justify-content-center" >
+  <h5>Last Played: <span class="badge bg-primary">{{last_login}}</span></h5>
+</div>
 
-<a href="{% url 'main:logout_user' %}">
-    <button>
+<br>
+<div class="d-flex justify-content-center">
+  <a href="{% url 'main:logout_user' %}">
+    <button class="btn btn-danger">
         Quit Game
     </button>
-</a>
-  </body>
+  </a>
+</div>
 
-</html>
+<script>
+$(document).ready(function(){
+    $("tr[data-url]").click(function() {
+        window.location = $(this).data("url");
+    });
+});
+</script>
+
 {%endblock content%}

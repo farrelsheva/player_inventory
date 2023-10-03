@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_main, create_item,\
+from main.views import show_main, create_item,edit_item,\
     show_json, show_xml, show_xml_by_id, show_json_by_id,\
     register, login_user, logout_user
 
@@ -8,6 +8,7 @@ app_name = 'main'
 urlpatterns = [
     path('', show_main, name='show_main'),
     path('create-item', create_item, name='create_item'),
+    path('edit-item/<int:id>', edit_item, name='edit_item'),
 
     path('json/', show_json, name='show_json'),
     path('xml/', show_xml, name='show_xml'),

@@ -14,8 +14,16 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
         crossorigin="anonymous"
         >
+        <style>
+            .navbar-brand {
+            transform: translateX(-50%);
+            left: 50%;
+            position: absolute;
+          }</style>
 
-        <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
         {% block meta %}
         {% endblock meta %}
     </head>
