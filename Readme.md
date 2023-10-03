@@ -95,8 +95,47 @@ Kita sebaiknya menggunakan Bootstrap jika: <br>
 ---
 ### Q4.5
 **Step-by-step Kustomisasi login, register dan tambah inventori** <br>
+Saya menggunakan Bootstrap framework untuk kustomisasi login, register, dan tambah inventori. (Karena paling mudah kelihatanya) <br>
 
+Login: <br>
+- Menggunakan 6 total Div untuk membuat tampilan login yang bagus <br>
+- `<div class="container">` untuk membuat container, paling luar <br> 
+- `<div class="row justify-content-center align-items-center" style="min-height: 100vh;">` membuat row yang akan mengisi container, dengan style yang akan membuat row berada di tengah, min-height 100vh untuk membuat row mengisi seluruh height dari viewport <br>
+- `<div class="col-md-4">` membuat column yang akan mengisi row, dengan ukuran medium (menggunakan 4 dari 12 column dari sistem grid bootstrap) <br>
+-  `<div class="text-center mb-4">` untuk header login, menempatkan text di tengah, dan menambhkan margin di bawah <br>
+- setiap `<div class="form-group mb-3">` untuk membuat form, dengan margin bawah 3 <br>
+- `<div class="text-center mt-3">` untuk link register, yang akan menempatkan text di tengah dan menambahkan margin atas 3 <br>
 
+Register: <br>
+Styling similar dengan login, kecuali cara menempatkan form yang berbeda <br>
+Dalam Register, form sudah ada template dari Django, yaitu UserCreationForm, menggunakan forloop, bisa menempatkan label `<label>`, lalu dibawahnya input untuk mengisi form `<input>`, dimana: <br>
+Label: <br>
+- `for="{{ field.id_for_label }}"` untuk menghubungkan label dengan input <br>
+- `class="form-label"` untuk menambahkan class form-label (dari bootstrap) <br>
+- `{{ field.label }}` untuk menampilkan label dari form <br>
+
+Input: <br>
+- `type: {{ field.field.widget.input_type }}` untuk menampilkan tipe input <br>
+- `name="{{ field.name }}"` untuk mengisi nama input ke HTML<br>
+- `id={{field.id_for_label}}` untuk mengisi id input ke HTML<br>
+- `placeholder` untuk menampilkan placeholder dari input  (di dalam input bar)<br>
+- `class="form-control"` untuk menambahkan class form-control (juga dari bootstrap) <br>
+
+Dalam Register, bootstrap yang digunakan ada di kedua form, dan juga di div untuk tombol 'daftar' di registrasi.<br>
+
+Tambah Inventori: <br>
+Styling mirip dengan yang sudah dimodif tadi, tapi menggunakan cards dari framework bootstrap, agar terlihat rapih. <br>
+- `<div class="card">` untuk membuat card utama yang mengitari form untuk membuat item baru<br>
+- `<div class="card-header bg-primary text-white text-center">` untuk membuat header, yang merupakan judul dari card, yaitu menambah item baru, dengan warna background biru dan text putih <br>
+- `<div class="card-body">` untuk membuat body dari card, yang dalam kasus ini merupakan form dari view `create-item`<br>
+- `<div class="d-grid">` untuk button submit yang akan mengisi seluruh width dari card, agar sizenya sama dan enak dilihat <br>
+- saya juga menambahkan `widgets` dalam form, agar tampilan input form dapat disesuaikan dengan keinginan, seperti `TextInput` untuk input name, `NumberInput` untuk input amount, dan `Textarea` untuk input description, yang lalu bisa dikirim melalui context dengan `{{ field }}` <br>
+
+BONUS:
+untuk bonus saya menggunakan forloop dengan if condition <br>
+forloop yang didapatkan di tutorial akan memberi class semua row yang sama `table-info` dan sebuah `data-url` dengan id item yang mendirect user kepada page `edit-item` dengan id item tersebut (walaupun saya telat untuk bonus minggu lalu hehe), kecuali row terakhir yang akan diberi class `table-danger`, tetapi akan tetap diberi `url` yang tepat <br>
+ilusi hover didapatkan dari bootstrap untuk class seluruh `<table>` yang merupakan `table table-hover mx auto` <br>
+dan yang paling penting adalah script jquery (yang ditempatkan di base.html) dan codenya yang disimpan dalam main.html, yang memberi fungsi onclick kepada tablerowc yang diberi `data-url` untuk mengarahkan user ke url yang sudah ditentukan <br>
 ---
 
 # TUGAS 3
