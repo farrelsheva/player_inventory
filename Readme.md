@@ -1,3 +1,24 @@
+# TUGAS 5
+### Q5.1
+**Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.** <br>
+Synchronous programming adalah sebuah proses yang berjalan secara sequential, dimana setiap baris kode akan dieksekusi satu per satu, dan baris kode selanjutnya akan dieksekusi setelah baris kode sebelumnya selesai dieksekusi. <br>
+
+Asynchronous programming adalah sebuah proses yang berjalan secara parallel, dimana setiap baris kode akan dieksekusi secara bersamaan, dan baris kode selanjutnya tidak perlu menunggu baris kode sebelumnya selesai dieksekusi. <br>
+
+### Q5.2 
+**Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.** <br>
+event-driven programming merupakan sebuah paradigma programming yang dimana kode yang ditulis menunggu event yang terjadi, dan akan dieksekusi ketika event tersebut terjadi. <br>
+Contoh dalam tugas ini adalah ketika kita mengklik sebuah tombol, maka akan terjadi event click, dan kode yang ditulis akan dieksekusi ketika event click terjadi. <br>
+
+### Q5.3
+**Jelaskan penerapan asynchronous programming pada AJAX**  <br>
+AJAX merupakan teknik yang memungkinkan kita untuk mengirim dan menerima data dari server secara asynchronous. <br>
+AJAX memungkinkan kita untuk mengirim dan menerima data secara asynchronous dengan menggunakan `XMLHttpRequest` object yang dibuat oleh javascript. <br>
+Server akan mengembalikan response kembali ke client, yang dibaca oleh javascript, dan ditampilkan ke halaman web. <br>
+AJAX memungkinkan kita untuk mengirim dan menerima data tanpa harus me-refresh halaman web. <br>
+
+---
+
 # TUGAS 4
 ### Q4.1
 **Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
@@ -354,6 +375,8 @@ Seperti yang disebut di dalam perbedaan-perbedaan tadi , JSON, atau JavaScript O
 ![XML_ID](ReadmeImg/XMLID.png)
 
 ---
+
+# TUGAS 1
 
 ### Q1.1
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**

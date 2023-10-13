@@ -8,32 +8,53 @@
 </nav>
   
 <h1 align="center">Inventory Page</h1>
-<p> Name: {{name}}</p>
+<p> Player: {{name}}</p>
 
 <p> Class: {{class}}</p>
 
 <p> NPM: {{npm}}</p>
-<table class="table table-hover mx auto">
-  <thead>
-    <tr>
-      <th scope="col">Item</th>
-      <th scope="col">Amount</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for item in items %}
-      <tr class="{% if forloop.last %}table-danger{% else %}table-info{% endif %}" 
-      data-url="{% url 'main:edit_item' item.id %}">
-          <td>{{item.name}}</td>
-          <td>{{item.amount}}</td>
-          <td>{{item.description}}</td>
-      </tr>
-  {% endfor %}
-  </tbody>
-</table>
+
+
+<div class="container">
+  <div class="row" id="item_cards">
+</div>
+
+
+<div class="modal fade" id="ManifestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Manifest An Item</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form id="form" onsubmit="return false;">
+                  {% csrf_token %}
+                  <div class="mb-3">
+                      <label for="name" class="col-form-label">Name:</label>
+                      <input type="text" class="form-control" id="name" name="name"></input>
+                  </div>
+                  <div class="mb-3">
+                      <label for="amount" class="col-form-label">Amount:</label>
+                      <input type="number" class="form-control" id="amount" name="amount"></input>
+                  </div>
+                  <div class="mb-3">
+                      <label for="description" class="col-form-label">Description:</label>
+                      <textarea class="form-control" id="description" name="description"></textarea>
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Manifest</button>
+          </div>
+      </div>
+  </div>
+</div>
 
 <br>
+
+
 
 <div class="d-flex justify-content-center" >
 <a href="{% url 'main:create_item' %}">
@@ -41,6 +62,8 @@
       Loot a new Item!
   </button>
 </a>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ManifestModal">
+  Add Product by AJAX</button>
 </div>
 
 <br>
@@ -58,11 +81,48 @@
 </div>
 
 <script>
-$(document).ready(function(){
-    $("tr[data-url]").click(function() {
-        window.location = $(this).data("url");
-    });
-});
+
+  async function getItems() {
+      return fetch("{% url 'main:get_item_json' %}").then((res) => res.json())
+  }
+
+  async function refreshProducts() {
+    document.getElementById("item_cards").innerHTML = ""
+    const items = await getItems()
+    let htmlString = ``
+    items.forEach((item) => {
+        htmlString += `
+        <div class ="col-md-4">
+          <div class= "card" style="width: 18 rem;margin:20px"
+            <div class= "card-body">
+              <h5 class="card-title">${item.fields.name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${item.fields.amount}</h6>
+              <p class="card-text">${item.fields.description}</p>
+            </div>
+          </div>
+        </div>`
+    })
+    document.getElementById("item_cards").innerHTML = htmlString
+}
+
+refreshProducts()
+
+function addItem() {
+    fetch("{% url 'main:add_item_ajax' %}", {
+        method: "POST",
+        body: new FormData(document.querySelector('#form'))
+    }).then(refreshProducts)
+
+    document.getElementById("form").reset()
+    return false
+}
+
+
+
+
+
+
+
 </script>
 
 {%endblock content%}
