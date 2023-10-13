@@ -17,6 +17,30 @@ AJAX memungkinkan kita untuk mengirim dan menerima data secara asynchronous deng
 Server akan mengembalikan response kembali ke client, yang dibaca oleh javascript, dan ditampilkan ke halaman web. <br>
 AJAX memungkinkan kita untuk mengirim dan menerima data tanpa harus me-refresh halaman web. <br>
 
+### Q5.4
+**Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.**
+Fetch API merupakan sebuah API untuk penerapan AJAX secara native di javascript, Fetch menggunakan promise untuk menghandle response dari server, promise merupakan sebuah object yang merepresentasikan sebuah nilai yang belum diketahui, yang akan diketahui di masa depan (bahkan jika mendapatkan error), saat response dari server sudah diketahui, promise akan mengembalikan response tersebut. <br> 
+
+Jquery merupakan sebuah library javascript yang mempunyai beberapa fitur, salah satunya adalah AJAX. method AJAX dari jquery menggunakan callback untuk menghandle response dari server. <br>
+
+### Q5.5 
+**step-by-step penerapan AJAX pada tugas ini** <br>
+Untuk tugas ini kita membuat sebuah penerpana GET dan POST <br>
+GET: 
+- dalam `views.py` buat sebuah fungsi yang mengambil semua item dari databse dan mengmbalikanya semua di format json
+- dalam `urls.py` buat sebuah routing baru untuk halaman json
+- dalam `main`, karena menggunakan cards, saya membuat div baru yang ber-id `item_cards`
+- dalam script yang dibuat di html main ini, saya membuat sebuah function yang akan mengambil semua item dari database dengan menggunakan fetch, dan mengembalikan response dalam bentuk json, lalu mengiterasi semua item yang ada, dan membuat sebuah card untuk setiap item yang ada, dan menambahkan card tersebut ke div yang sudah dibuat tadi
+
+POST: 
+- dalam `views.py`, saya membuat fungsi `add_item_ajax`, fungsi ini membuat item baru sesuai dengan model fields, dan user yang sedang login, lalu menyimpannya ke database 
+dengan .save 
+- jika berhasil disimpan, fungsi ini akan mengembalikan response dengan status code 201
+- dalam `urls.py` buat sebuah routing baru untuk halaman add_item_ajax
+- dalam `main`, saya membuat sebuah form di dalam modal yang akan mengirimkan data ke `add_item_ajax` dengan method POST, dan membuat sebuah button yang akan mengirimkan data ke `add_item_ajax` dengan method POST
+- untuk membuat operasi seamless, kita membuat sebuah fungsi js bernama `refresh`, yang akan mengambil semua item dari database dengan fetch, dan mengembalikan response dalam bentuk json, lalu mengiterasi semua item yang ada, dan membuat sebuah card untuk setiap item yang ada, dan menambahkan card tersebut ke div yang sudah dibuat tadi, `refresh` akan berjalan secara asynchronous, sehingga tidak perlu me-refresh halaman web
+
+
 ---
 
 # TUGAS 4
