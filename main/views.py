@@ -38,7 +38,7 @@ def create_item(request):
     return render(request, 'create_item.html', context)
 
 def get_item_json(request):
-    item = Item.objects.all()
+    item = Item.objects.filter(user = request.user)
     return  HttpResponse(serializers.serialize('json', item ))
 
 @csrf_exempt
